@@ -59,6 +59,9 @@ private slots:
     void setSelGeoHideTime(int v);
     void setJpegQuality(int v);
 
+    // brunoais
+    void stampFileLocationEdited();
+
 private:
     const QString chooseFolder(const QString& currentPath = "");
 
@@ -92,6 +95,9 @@ private:
     void initSaveLastRegion();
     void initShowSelectionGeometry();
     void initJpegQuality();
+
+    // brunoais
+    void initStampDirectoryLocation();
 
     void _updateComponents(bool allowEmptySavePath);
 
@@ -136,4 +142,7 @@ private:
     QComboBox* m_selectGeometryLocation;
     QSpinBox* m_xywhTimeout;
     QSpinBox* m_jpegQuality;
+
+    // brunoais
+    QLineEdit* m_stampLocationField;
 };

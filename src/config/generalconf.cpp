@@ -57,6 +57,7 @@ GeneralConf::GeneralConf(QWidget* parent)
     initUploadHistoryMax();
     initUndoLimit();
     initUploadClientSecret();
+    initStampDirectoryLocation();
     initPredefinedColorPaletteLarge();
     initShowSelectionGeometry();
 
@@ -566,6 +567,32 @@ void GeneralConf::initUploadClientSecret()
             this,
             &GeneralConf::uploadClientKeyEdited);
     vboxLayout->addWidget(m_uploadClientKey);
+}
+
+void GeneralConf::initStampDirectoryLocation()
+{
+    auto* box = new QGroupBox("Stamp directory location");
+    box->setFlat(true);
+    m_layout->addWidget(box);
+
+    auto* vboxLayout = new QVBoxLayout();
+    box->setLayout(vboxLayout);
+
+    m_stampLocationField = new QLineEdit(this);
+    QString foreground = this->palette().windowText().color().name();
+    m_stampLocationField->setStyleSheet(
+      QStringLiteral("color: %1").arg(foreground));
+    m_stampLocationField->setText(ConfigHandler().stampFileLocation());
+    connect(m_stampLocationField,
+            &QLineEdit::editingFinished,
+            this,
+            &GeneralConf::stampFileLocationEdited);
+    vboxLayout->addWidget(m_stampLocationField);
+}
+
+void GeneralConf::stampFileLocationEdited()
+{
+    ConfigHandler().setStampFileLocation(m_stampLocationField->text());
 }
 
 void GeneralConf::uploadClientKeyEdited()

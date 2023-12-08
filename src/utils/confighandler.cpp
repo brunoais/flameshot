@@ -126,6 +126,10 @@ static QMap<class QString, QSharedPointer<ValueHandler>>
     OPTION("showSelectionGeometry"  , BoundedInt               (0,5,4)),
     OPTION("showSelectionGeometryHideTime", LowerBoundedInt       (0, 3000)),
     OPTION("jpegQuality", BoundedInt     (0,100,75))
+
+
+    // brunoais
+    ,OPTION("stampFileLocation"          ,String             ( "here"            )),
 };
 
 static QMap<QString, QSharedPointer<KeySequence>> recognizedShortcuts = {

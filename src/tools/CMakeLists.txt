@@ -66,3 +66,7 @@ target_sources(
           abstracttwopointtool.h
           capturetool.h
           toolfactory.h)
+
+
+# brunoais
+target_sources(flameshot PRIVATE imgStamp/imgStamp.h imgStamp/imgStamp.cpp)

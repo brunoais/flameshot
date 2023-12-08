@@ -26,6 +26,8 @@
 #include "text/texttool.h"
 #include "undo/undotool.h"
 
+#include "imgStamp/imgStamp.h"
+
 ToolFactory::ToolFactory(QObject* parent)
   : QObject(parent)
 {}
@@ -62,6 +64,8 @@ CaptureTool* ToolFactory::CreateTool(CaptureTool::Type t, QObject* parent)
         if_TYPE_return_TOOL(TYPE_SIZEDECREASE, SizeDecreaseTool);
         if_TYPE_return_TOOL(TYPE_INVERT, InvertTool);
         if_TYPE_return_TOOL(TYPE_ACCEPT, AcceptTool);
+
+        if_TYPE_return_TOOL(TYPE_STAMP, StampTool);
         default:
             return nullptr;
     }

@@ -131,6 +131,10 @@ public:
                          showSelectionGeometryHideTime,
                          int)
 
+
+    // brunoais
+    CONFIG_GETTER_SETTER(stampFileLocation, setStampFileLocation, QString)
+
     // SPECIAL CASES
     bool startupLaunch();
     void setStartupLaunch(const bool);
